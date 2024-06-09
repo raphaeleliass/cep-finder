@@ -9,15 +9,15 @@ import {
   CardTitle,
 } from "./components/ui/card";
 import { Input } from "./components/ui/input";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const dddRef = useRef<HTMLInputElement>(null);
+  const dddRef = useRef<HTMLParagraphElement>(null);
   const [showError, setShowError] = useState<boolean>(false);
 
   const handleClick = () => {
-    const inputValue = inputRef.current?.value.trim();
+    const inputValue = inputRef.current?.value.trim() || "";
     const hasAlphabeticChars = /[a-zA-Z]/.test(inputValue);
 
     if (!inputValue || inputValue.length !== 8 || hasAlphabeticChars) {
